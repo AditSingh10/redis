@@ -4,7 +4,7 @@
 # are preserved across iterations.
 
 run_solo {cluster-resharding} {
-start_cluster 5 5 {tags {external:skip cluster} overrides {appendonly yes appendfsync no}} {
+start_cluster 5 5 {tags {external:skip cluster} overrides {appendonly yes appendfsync no cluster-node-timeout 60000}} {
 
 test "Enable AOF in all the instances" {
     for {set id 0} {$id < [llength $::servers]} {incr id} {
